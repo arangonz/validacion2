@@ -164,7 +164,7 @@ module.exports = function (grunt) {
     wiredep: {
       app: {
         ignorePath: /^\/|\.\.\//,
-        src: ['<%= config.app %>/ejercicio1.html']
+        src: ['<%= config.app %>/ejercicio*.html']
       }
     },
 
@@ -190,7 +190,7 @@ module.exports = function (grunt) {
       options: {
         dest: '<%= config.dist %>'
       },
-      html: '<%= config.app %>/index.html'
+      html: '<%= config.app %>/ejercicio*.html'
     },
 
     // Performs rewrites based on rev and the useminPrepare configuration
@@ -294,6 +294,12 @@ module.exports = function (grunt) {
         }, {
           src: 'node_modules/apache-server-configs/dist/.htaccess',
           dest: '<%= config.dist %>/.htaccess'
+        }, {
+          src: '<%= config.app %>/php/users.php',
+          dest: '<%= config.dist %>/php/users.php'
+        }, {
+          src: '<%= config.app %>/php/emails.php',
+          dest: '<%= config.dist %>/php/emails.php'
         }]
       },
       styles: {
